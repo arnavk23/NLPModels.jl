@@ -317,7 +317,10 @@ overwriting `vals`.
 function jac_lin_coord! end
 
 # Deprecated version with x parameter
-@deprecate jac_lin_coord!(nlp::AbstractNLPModel, x::AbstractVector, vals::AbstractVector) jac_lin_coord!(nlp, vals)
+@deprecate jac_lin_coord!(nlp::AbstractNLPModel, x::AbstractVector, vals::AbstractVector) jac_lin_coord!(
+  nlp,
+  vals,
+)
 
 """
     vals = jac_lin_coord(nlp)
@@ -801,7 +804,12 @@ function jac_lin_op!(
 end
 
 # Deprecated version with x parameter  
-@deprecate jac_lin_op!(nlp::AbstractNLPModel, x::AbstractVector, Jv::AbstractVector, Jtv::AbstractVector) jac_lin_op!(nlp, Jv, Jtv)
+@deprecate jac_lin_op!(
+  nlp::AbstractNLPModel,
+  x::AbstractVector,
+  Jv::AbstractVector,
+  Jtv::AbstractVector,
+) jac_lin_op!(nlp, Jv, Jtv)
 
 """
     J = jac_lin_op!(nlp, rows, cols, vals, Jv, Jtv)

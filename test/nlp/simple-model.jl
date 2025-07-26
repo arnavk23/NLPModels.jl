@@ -53,7 +53,7 @@ function NLPModels.jprod!(nlp::SimpleNLPModel, v::AbstractVector, Jv::AbstractVe
   NLPModels.jprod_lin!(nlp, v, view(Jv, nlp.meta.lin))
   NLPModels.jprod_nln!(nlp, x, v, view(Jv, nlp.meta.nln))
   if length(Jv) > length(nlp.meta.lin)
-    Jv[length(nlp.meta.lin)+1:end] .= 0
+    Jv[(length(nlp.meta.lin) + 1):end] .= 0
   end
   return Jv
 end
@@ -180,7 +180,12 @@ function NLPModels.jprod_nln!(
   return Jv
 end
 
-function NLPModels.jprod!(nlp::SimpleNLPModel, x::AbstractVector, v::AbstractVector, Jv::AbstractVector)
+function NLPModels.jprod!(
+  nlp::SimpleNLPModel,
+  x::AbstractVector,
+  v::AbstractVector,
+  Jv::AbstractVector,
+)
   NLPModels.jprod_lin!(nlp, v, view(Jv, nlp.meta.lin))
   NLPModels.jprod_nln!(nlp, x, v, view(Jv, nlp.meta.nln))
   return Jv

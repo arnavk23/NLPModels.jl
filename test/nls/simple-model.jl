@@ -60,7 +60,12 @@ function NLPModels.jprod!(nls::SimpleNLSModel, v::AbstractVector, Jv::AbstractVe
   return Jv
 end
 
-function NLPModels.jprod!(nls::SimpleNLSModel, x::AbstractVector, v::AbstractVector, Jv::AbstractVector)
+function NLPModels.jprod!(
+  nls::SimpleNLSModel,
+  x::AbstractVector,
+  v::AbstractVector,
+  Jv::AbstractVector,
+)
   NLPModels.jprod_nln!(nls, x, v, Jv)
   return Jv
 end
